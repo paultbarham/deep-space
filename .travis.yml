@@ -8,7 +8,7 @@ script: mvn clean verify
 deploy:
   provider: azure_web_apps
   verbose: true
-  skip_cleanup: true
+  # skip_cleanup: true
   on:
     all_branches: true
   
