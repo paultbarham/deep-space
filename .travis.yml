@@ -4,5 +4,4 @@ script: mvn clean verify
 deploy:
   provider: azure_web_apps
   verbose: true
-  on: 
-    branch: demo
+
