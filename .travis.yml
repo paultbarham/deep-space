@@ -3,9 +3,10 @@ sudo: false
 
 script: mvn clean verify
 
-before_deploy: "git config user.email 'pabarham@microsoft.com'"
-before_deploy: "git config user.name 'Paul T. Barham'"
-before_deploy: "git commit -am 'dummy'"
+before_deploy:
+  - git config user.email "pabarham@microsoft.com"
+  - git config user.name "Paul T. Barham"
+  - git commit -am "dummy"
 
 deploy:
   provider: azure_web_apps
