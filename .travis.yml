@@ -3,11 +3,12 @@ sudo: false
 
 script: mvn clean verify
 
-before_deploy: "git commit -am 'dummy'"
+# before_deploy: "git commit -am 'dummy'"
 
 deploy:
   provider: azure_web_apps
   verbose: true
+  skip_cleanup: true
   on:
     all_branches: true
-
+  
