@@ -3,10 +3,10 @@ sudo: false
 
 script: mvn clean verify
 
-before_deploy:
-  - git config user.email "pabarham@microsoft.com"
-  - git config user.name "Paul T. Barham"
-  - git commit -am "dummy"
+# before_deploy:
+#  - git config user.email "pabarham@microsoft.com"
+#  - git config user.name "Paul T. Barham"
+#  - git commit -am "dummy"
 
 deploy:
   provider: azure_web_apps
@@ -14,4 +14,5 @@ deploy:
   # skip_cleanup: true
   on:
     all_branches: true
+  file: target/ROOT.war
   
