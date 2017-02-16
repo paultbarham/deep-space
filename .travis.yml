@@ -6,3 +6,4 @@ deploy:
   verbose: true
   on:
     all_branches: true
+  before_deploy: "git add target/ROOT.war; git commit -m 'dummy'"
