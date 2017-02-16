@@ -3,16 +3,16 @@ sudo: false
 
 script: mvn clean verify
 
-# before_deploy:
-#  - git config user.email "pabarham@microsoft.com"
-#  - git config user.name "Paul T. Barham"
-#  - git commit -am "dummy"
+before_deploy:
+- git config user.email "pabarham@microsoft.com"
+- git config user.name "Paul T. Barham"
+- git commit -am "dummy"
 
 deploy:
   provider: azure_web_apps
   verbose: true
-  # skip_cleanup: true
+  skip_cleanup: true
   on:
     all_branches: true
-  file: /home/travis/build/paultbarham/deep-space/target/ROOT.war
+  # file: /home/travis/build/paultbarham/deep-space/target/ROOT.war
   
