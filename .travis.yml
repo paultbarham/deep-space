@@ -1,9 +1,13 @@
 language: java
 sudo: false
+
 script: mvn clean verify
+
+before_deploy: "git commit -am 'dummy'"
+
 deploy:
   provider: azure_web_apps
   verbose: true
   on:
     all_branches: true
-  before_deploy: "git add target/ROOT.war; git commit -m 'dummy'"
+
