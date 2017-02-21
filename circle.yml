@@ -14,6 +14,8 @@ deployment:
     commands:
       - mkdir webapps
       - cp target/ROOT.war webapps/ROOT.war
+      - git config user.email "pabarham@microsoft.com"
+      - git config user.name "Paul T. Barham"
       - git add webapps/ROOT.war
       - git commit -m "commit ROOT.war"
       - git remote add azure https://$azureUser:$azurePW@java-alm.scm.azurewebsites.net:443/java-alm.git
