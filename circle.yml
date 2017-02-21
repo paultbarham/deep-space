@@ -1,4 +1,6 @@
 machine:
   java:
     version:
-      oraclejdk7
+      oraclejdk7compile:
+  override:
+    - bundle exec mvn clean verify
