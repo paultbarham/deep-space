@@ -1,2 +1,2 @@
 [config]
-project = target/ROOT.war
+project = repository/target/ROOT.war
