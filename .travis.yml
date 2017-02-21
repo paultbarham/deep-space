@@ -4,15 +4,20 @@ sudo: false
 script: mvn clean verify
 
 before_deploy:
+- mkdir webapps
+- cp target/ROOT.war webapps/ROOT.war
 - git config user.email "pabarham@microsoft.com"
-- git config user.name "Paul T. Barham"
-- git commit -am "dummy"
+- git config user.name "Paul T. Barham"A
+- git add webapps/ROOT.war
+- git commit -m "commit ROOT.war"
 
 deploy:
-  provider: azure_web_apps
-  verbose: true
-  skip_cleanup: true
-  on:
-    all_branches: true
+- git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
+- git push --force azure demo:master
+  # provider: azure_web_apps
+  # verbose: true
+  # skip_cleanup: true
+  # on:
+    # all_branches: true
   # file: /home/travis/build/paultbarham/deep-space/target/ROOT.war
   
