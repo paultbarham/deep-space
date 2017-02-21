@@ -12,6 +12,6 @@ deployment:
   production:
     branch: demo
     commands:
-      - git remote add azure https://travisciPTB2:Tr%40visCI!@java-alm.scm.azurewebsites.net:443/java-alm.git
+      - git remote add azure https://travisciPTB2:$azurePW@java-alm.scm.azurewebsites.net:443/java-alm.git
       - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
       - git push azure 
