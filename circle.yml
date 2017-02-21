@@ -5,3 +5,4 @@ machine:
 compile:
   override:
     - mvn clean verify
+# change
