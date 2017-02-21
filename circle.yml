@@ -8,3 +8,9 @@ general:
 compile:
   override:
     - mvn clean verify
+deployment:
+  production:
+    branch: demo
+    commands:
+      - git remote add azure https://travisciPTB2@java-alm.scm.azurewebsites.net:443/java-alm.git
+      - git push azure 
