@@ -13,6 +13,7 @@ after_success:
 - git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
 - git push --force azure demo:master
 
+# not needed
 # deploy:
   # provider: azure_web_apps
   # verbose: true
