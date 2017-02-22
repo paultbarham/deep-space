@@ -5,16 +5,24 @@ script: mvn clean verify
 
 #Azure WebApps git repo deployment
 after_success:
-- mkdir -p newrepo/webapps
-- cp target/ROOT.war newrepo/webapps/ROOT.war
-- cd newrepo
-- git init
-- git config user.email "pabarham@microsoft.com"
-- git config user.name "Paul T. Barham"
-- git add webapps/ROOT.war
-- git commit -m "commit ROOT.war"
-- git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
-- git push --force azure HEAD:master
+# ftp Deployment Method
+echo user $AZURE_FTP_USERNAME $AZURE_FTP_PASSWORD > ftp.input.txt
+echo cd site\/wwwroot\/webapps >> ftp.input.txt
+echo put target\/ROOT.war >> ftp.input.txt
+echo quit >> ftp.input.txt
+ftp -n -i -v -p $AZURE_FTP_SITE < ftp.input.txt
+
+# Git Deployment Method
+#- mkdir -p newrepo/webapps
+#- cp target/ROOT.war newrepo/webapps/ROOT.war
+#- cd newrepo
+#- git init
+#- git config user.email "pabarham@microsoft.com"
+#- git config user.name "Paul T. Barham"
+#- git add webapps/ROOT.war
+#- git commit -m "commit ROOT.war"
+#- git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
+#- git push --force azure HEAD:master
 
 # Below does not work for Java WebApps
 # deploy:
