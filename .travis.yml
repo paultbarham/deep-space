@@ -5,11 +5,12 @@ script: mvn clean verify
 
 #Azure WebApps git repo deployment
 after_success:
-- echo user $AZURE_FTP_USERNAME $AZURE_FTP_PASSWORD > ftp.input.txt
-- echo cd site\/wwwroot\/webapps >> ftp.input.txt
-- echo put target\/ROOT.war >> ftp.input.txt
-- echo quit >> ftp.input.txt
-- /usr/bin/ftp -n -i -v -p $AZURE_FTP_SITE < ftp.input.txt
+"curl --ftp-create-dirs -T target/ROOT.war -u $AZURE_FTP_USERNAME:$AZURE_FTP_PASSWORD ftp://$AZURE_FTP_SITE/site/wwwroot/webapps/ROOT.war"
+#- echo user $AZURE_FTP_USERNAME $AZURE_FTP_PASSWORD > ftp.input.txt
+#- echo cd site\/wwwroot\/webapps >> ftp.input.txt
+#- echo put target\/ROOT.war >> ftp.input.txt
+#- echo quit >> ftp.input.txt
+#- /usr/bin/ftp -n -i -v -p $AZURE_FTP_SITE < ftp.input.txt
 
 # Git Deployment Method
 #- mkdir -p newrepo/webapps
