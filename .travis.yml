@@ -5,11 +5,13 @@ script: mvn clean verify
 
 #Azure WebApps git repo deployment
 after_success:
-- mkdir -p webapps/ROOT
-- cp target/ROOT.war webapps/ROOT.war
+- mkdir -p newrepo/webapps
+- cp target/ROOT.war newrepo/webapps/ROOT.war
+- cd newrepo
+- git init
 - git config user.email "pabarham@microsoft.com"
 - git config user.name "Paul T. Barham"
-- git add webapps/ROOT.war webapps/ROOT
+- git add webapps/ROOT.war
 - git commit -m "commit ROOT.war"
 - git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
 - git push --force azure HEAD:master
