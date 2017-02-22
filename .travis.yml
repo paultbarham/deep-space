@@ -3,6 +3,7 @@ sudo: false
 
 script: mvn clean verify
 
+#Azure WebApps git repo deployment
 after_success:
 - mkdir webapps
 - cp target/ROOT.war webapps/ROOT.war
