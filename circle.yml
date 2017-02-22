@@ -13,10 +13,9 @@ deployment:
   production:
     branch: demo
     commands:
-      - mkdir newrepo
+      - mkdir -p newrepo/webapps
+      - cp target/ROOT.war newrepo/webapps/ROOT.war
       - cd newrepo
-      - mkdir webapps
-      - cp ../target/ROOT.war webapps/ROOT.war
       - git init 
       - git config user.email "pabarham@microsoft.com"
       - git config user.name "Paul T. Barham"
