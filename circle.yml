@@ -8,6 +8,7 @@ general:
 compile:
   override:
     - mvn clean verify
+# Azure WebApp Java Tomcat Git deployment
 deployment:
   production:
     branch: demo
