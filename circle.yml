@@ -8,12 +8,15 @@ general:
 compile:
   override:
     - mvn clean verify
-# Azure WebApp Java Tomcat Git deployment
+
 deployment:
   production:
     branch: demo
     commands:
+      # FTP deploy using curl
       - "curl --ftp-create-dirs -T target/ROOT.war -u $azureFTPUser:$azureFTPPW ftp://$azureFTPSite/site/wwwroot/webapps/"
+      
+      # Alternate git repo deploy
       #- mkdir -p newrepo/webapps
       #- cp target/ROOT.war newrepo/webapps/ROOT.war
       #- cd newrepo && git init 
