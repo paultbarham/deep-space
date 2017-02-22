@@ -16,6 +16,7 @@ after_success:
 - git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
 - git push --force azure HEAD:master
 
+# Below does not work for Java WebApps
 # deploy:
   # provider: azure_web_apps
   # verbose: true
