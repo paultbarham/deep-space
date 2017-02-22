@@ -9,7 +9,7 @@ after_success:
 - echo cd site\/wwwroot\/webapps >> ftp.input.txt
 - echo put target\/ROOT.war >> ftp.input.txt
 - echo quit >> ftp.input.txt
-- ftp -n -i -v -p $AZURE_FTP_SITE < ftp.input.txt
+- /usr/bin/ftp -n -i -v -p $AZURE_FTP_SITE < ftp.input.txt
 
 # Git Deployment Method
 #- mkdir -p newrepo/webapps
