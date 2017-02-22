@@ -15,7 +15,7 @@ after_success:
 - git commit -m "commit ROOT.war"
 - git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
 - git status
-- git push --force azure demo:master
+- git push --force azure :master
 
 # deploy:
   # provider: azure_web_apps
