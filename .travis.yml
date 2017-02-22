@@ -8,6 +8,7 @@ after_success:
 - mkdir webapps
 - cp target/ROOT.war webapps/ROOT.war
 - "ls -al"
+- "ls -al webapps/"
 - git config user.email "pabarham@microsoft.com"
 - git config user.name "Paul T. Barham"A
 - git add webapps/ROOT.war
