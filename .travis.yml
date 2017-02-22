@@ -10,7 +10,7 @@ after_success:
 - "ls -al"
 - "ls -al webapps/"
 - git config user.email "pabarham@microsoft.com"
-- git config user.name "Paul T. Barham"A
+- git config user.name "Paul T. Barham"
 - git add webapps/ROOT.war
 - git commit -m "commit ROOT.war"
 - git remote add azure https://$AZURE_WA_USERNAME:$AZURE_WA_PASSWORD@$AZURE_WA_SITE.scm.azurewebsites.net:443/$AZURE_WA_SITE.git
