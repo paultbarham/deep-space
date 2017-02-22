@@ -15,12 +15,11 @@ deployment:
     commands:
       - mkdir -p newrepo/webapps
       - cp target/ROOT.war newrepo/webapps/ROOT.war
-      - cd newrepo
-      - git init 
-      - git config user.email "pabarham@microsoft.com"
-      - git config user.name "Paul T. Barham"
-      - git add webapps/ROOT.war
-      - git commit -m "commit ROOT.war"
-      - git remote add azure https://$azureUser:$azurePW@$azureSite.scm.azurewebsites.net:443/$azureSite.git
+      - cd newrepo && git init 
+      - cd newrepo && git config user.email "pabarham@microsoft.com"
+      - cd newrepo && git config user.name "Paul T. Barham"
+      - cd newrepo && git add webapps/ROOT.war
+      - cd newrepo && git commit -m "commit ROOT.war"
+      - cd newrepo && git remote add azure https://$azureUser:$azurePW@$azureSite.scm.azurewebsites.net:443/$azureSite.git
       # - "[[ ! -s \"$(git rev-parse --git-dir)/shallow\" ]] || git fetch --unshallow"
-      - git push --force azure HEAD:master
+      - cd newrepo && git push --force azure HEAD:master
